@@ -6,7 +6,7 @@ import base64
 import argparse
 
 gi.require_version('Gtk', '3.0')
-from gi.repository import GLib, Gtk, GObject, GdkPixbuf, Gio
+from gi.repository import GLib, Gtk, GdkPixbuf
 
 
 class MqttImage(Gtk.Window):
