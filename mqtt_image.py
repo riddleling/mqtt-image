@@ -2,7 +2,6 @@ import gi
 from paho.mqtt import client as mqtt_client
 import random
 import threading
-import base64
 import argparse
 
 gi.require_version('Gtk', '3.0')
