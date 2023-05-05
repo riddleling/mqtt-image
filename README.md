@@ -32,5 +32,12 @@ or
 $ python3 mqtt_image.py -b broker.MQTTGO.io -p 1883 -t Youjunjer/TESTHOME/pic
 ```
 
+or (use default port)
+
+```
+$ python3 mqtt_image.py -b broker.MQTTGO.io -t Youjunjer/TESTHOME/pic
+```
+
+
 ![image](img/img1.png)
 
