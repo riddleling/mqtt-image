@@ -32,10 +32,16 @@ or
 $ python3 mqtt_image.py -b broker.MQTTGO.io -p 1883 -t Youjunjer/TESTHOME/pic
 ```
 
-or (use default port)
+or (use default port: 1883)
 
 ```
 $ python3 mqtt_image.py -b broker.MQTTGO.io -t Youjunjer/TESTHOME/pic
+```
+
+or (use default broker: broker.MQTTGO.io)
+
+```
+$ python3 mqtt_image.py -t Youjunjer/TESTHOME/pic
 ```
 
 

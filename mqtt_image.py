@@ -61,7 +61,7 @@ class MqttImage(Gtk.Window):
 
 
 parser = argparse.ArgumentParser()
-parser.add_argument("-b", "--broker", help="MQTT Broker")
+parser.add_argument("-b", "--broker", help="MQTT Broker", default="broker.MQTTGO.io")
 parser.add_argument("-p", "--port", help="MQTT Port", type=int, default=1883)
 parser.add_argument("-t", "--topic", help="MQTT Image topic")
 args = parser.parse_args()
