@@ -17,7 +17,7 @@ class MqttImage(Gtk.Window):
         self.topic = topic
         self.client_id = f'MQTTGO-{random.randint(0, 1000000)}'
         
-        self.set_title("MQTT Image")
+        self.set_title(topic)
         self.connect("destroy", Gtk.main_quit)
 
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)     
