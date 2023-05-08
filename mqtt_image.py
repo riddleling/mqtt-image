@@ -116,8 +116,6 @@ class AppWindow(Gtk.ApplicationWindow):
         win.show_all()
 
 
-
-
 class Application(Gtk.Application):
     def __init__(self, *args, **kwargs):
         super().__init__(
@@ -150,14 +148,3 @@ class Application(Gtk.Application):
 if __name__ == "__main__":
     app = Application()
     app.run(sys.argv)
-
-# parser = argparse.ArgumentParser()
-# parser.add_argument("-b", "--broker", help="MQTT Broker", default="broker.MQTTGO.io")
-# parser.add_argument("-p", "--port", help="MQTT Port", type=int, default=1883)
-# parser.add_argument("-t", "--topic", help="MQTT Image topic")
-# args = parser.parse_args()
-
-# window = MqttImage(args.broker, args.port, args.topic)
-# window.show_all()
-
-# Gtk.main()
