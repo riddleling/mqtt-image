@@ -12,7 +12,7 @@ from gi.repository import GLib, Gtk, GdkPixbuf, Gio
 class MqttImage(Gtk.Window):
     def __init__(self, broker, port, topic):
         Gtk.Window.__init__(self)
-        
+        self.set_default_size(300, 200)
         self.broker = broker
         self.port = port
         self.topic = topic
@@ -142,7 +142,6 @@ class Application(Gtk.Application):
 
         self.activate()
         return 0
-
 
 
 if __name__ == "__main__":
