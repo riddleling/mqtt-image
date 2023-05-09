@@ -27,9 +27,9 @@ class MqttImage(Gtk.Window):
         self.image = Gtk.Image()       
         vbox.pack_start(self.image, True, True, 0)
 
-        thread = threading.Thread(target=self.connect_mqtt)
-        thread.daemon = True
-        thread.start()
+        self.thread = threading.Thread(target=self.connect_mqtt)
+        self.thread.daemon = True
+        self.thread.start()
 
     def connect_mqtt(self):
         def mqtt_on_connect(client, userdata, flags, rc):
@@ -42,7 +42,7 @@ class MqttImage(Gtk.Window):
         self.client.on_connect = mqtt_on_connect
         self.client.connect(self.broker, self.port)
         self.subscribe()
-        self.client.loop_forever()
+        self.client.loop_start()
     
     def subscribe(self):
         def on_message(client, userdata, msg):
@@ -119,6 +119,8 @@ class AppWindow(Gtk.ApplicationWindow):
     def mqtt_image_close(self, win):
         print("mqtt_image_close:")
         print(win.topic)
+        win.client.disconnect()
+        win.client.loop_stop()
 
 
 class Application(Gtk.Application):
