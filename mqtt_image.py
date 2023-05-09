@@ -10,7 +10,7 @@ from gi.repository import GLib, Gtk, GdkPixbuf, Gio
 
 
 class MqttImage(Gtk.Window):
-    def __init__(self, broker, port, topic):
+    def __init__(self, broker, port, topic, callback):
         Gtk.Window.__init__(self)
         self.set_default_size(300, 200)
         self.broker = broker
@@ -19,7 +19,7 @@ class MqttImage(Gtk.Window):
         self.client_id = f'MQTTGO-{random.randint(0, 1000000)}'
         
         self.set_title(topic)
-        self.connect("destroy", Gtk.main_quit)
+        self.connect("destroy", callback)
 
         vbox = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)     
         self.add(vbox)
@@ -112,8 +112,13 @@ class AppWindow(Gtk.ApplicationWindow):
 
         win = MqttImage(self.broker_entry.get_text(), 
                         int(self.port_entry.get_text()), 
-                        self.topic_entry.get_text())
+                        self.topic_entry.get_text(),
+                        self.mqtt_image_close)
         win.show_all()
+
+    def mqtt_image_close(self, win):
+        print("mqtt_image_close:")
+        print(win.topic)
 
 
 class Application(Gtk.Application):
