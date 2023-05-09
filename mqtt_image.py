@@ -42,7 +42,7 @@ class MqttImage(Gtk.Window):
         self.client.on_connect = mqtt_on_connect
         self.client.connect(self.broker, self.port)
         self.subscribe()
-        self.client.loop_start()
+        self.client.loop_forever()
     
     def subscribe(self):
         def on_message(client, userdata, msg):
